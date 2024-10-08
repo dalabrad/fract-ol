@@ -30,5 +30,6 @@ $(NAME): $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-
+clean:	
+	$(RM) $(NAME)
 
