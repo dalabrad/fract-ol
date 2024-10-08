@@ -24,7 +24,7 @@ YELLOW = \033[1;33m
 RESET = \033[0m
 
 
-$(NAME): $(OBJ) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT)
 	$(CC) -Iminilibx-linux $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
 
 $(LIBFT):
