@@ -1,7 +1,7 @@
 NAME = fractol
 
-#LIBFT_DIR = ./libft
-#LIBFT = $(LIBFT_DIR)/libft.a
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = $(wildcard src/fractol*.c)
 
@@ -24,12 +24,25 @@ YELLOW = \033[1;33m
 RESET = \033[0m
 
 
-$(NAME): $(OBJ)
-	$(CC) -Iminilibx-linux $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) -Iminilibx-linux $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean:	
-	$(RM) $(NAME)
+	$(RM) $(OBJS)
+	make -C $(LIBFT_DIR) clean
 
+fclean: clean
+	$(RM) $(NAME)
+	make -C $(LIBFT_DIR) fclean
+
+all: $(NAME)
+
+re : fclean all	
+
+.PHONY: all clean fclean re
