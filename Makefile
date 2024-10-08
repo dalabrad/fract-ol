@@ -15,7 +15,7 @@ MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
+#FLAGS = -L$(MLX_DIR) -lmlx -L/usr/lib/X11 -lXext -lX11 -lm
 RM = rm -f
 
 GREEN = \033[0;32m
@@ -25,10 +25,10 @@ RESET = \033[0m
 
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) -Iminilibx-linux $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 
 
