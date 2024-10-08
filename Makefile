@@ -3,12 +3,11 @@ NAME = fractol
 #LIBFT_DIR = ./libft
 #LIBFT = $(LIBFT_DIR)/libft.a
 
-#SRCS = $(wildcard src/pipex*.c)
-#SRCS_BONUS = $(wildcard src_bonus/pipex*bonus.c)
+SRCS = $(wildcard src/fractol*.c)
 
 MAIN = main.c
 
-#OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 MLX_DIR = ./mlx
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
@@ -25,9 +24,11 @@ YELLOW = \033[1;33m
 RESET = \033[0m
 
 
-$(NAME): $(LIBFT) $(PIPEX_LIB) $(MAIN)
-	@echo "$(YELLOW)Compiling ./fractol executable...$(RESET)"
-	$(CC) $(CFLAGS) -o $(NAME) $(MAIN) $(PIPEX_LIB) $(LIBFT)
-	@echo "$(GREEN)./fractol executable created successfully.$(RESET)"
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
 
 
