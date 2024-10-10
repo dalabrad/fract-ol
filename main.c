@@ -6,12 +6,13 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2024/10/10 11:57:19 by dalabrad         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:29:42 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
 #include <X11/keysym.h>
+#include <X11/X.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft/libft.h"
@@ -60,10 +61,19 @@ int	handle_input(int keysym, t_mlx_data *data)
 	return (0);
 }
 
+int	button_press(int button, int x, int y)
+{
+	if (button == 1)
+		printf("Left mouse button pressed at (%d, %d)!\n\n", x, y);
+	else if (button == 3)
+		printf("Right mouse button pressed at (%d, %d)!\n\n", x, y);
+	return (0);
+}
+
 int	main(void)
 {
 	t_mlx_data	data;
-	int 		i;
+	int			i;
 	int			j;
 
 	data.mlx_ptr = mlx_init();
@@ -74,9 +84,9 @@ int	main(void)
 	{
 		mlx_destroy_display(data.mlx_ptr);
 		free(data.mlx_ptr);
-		return(MLX_ERROR);
+		return (MLX_ERROR);
 	}
-	data.img_data_ptr = malloc(sizeof(t_data)); // Asignar memoria para img_data_ptr
+	data.img_data_ptr = malloc(sizeof(t_data));
 	if (!data.img_data_ptr)
 	{
 		mlx_destroy_window(data.mlx_ptr, data.win_ptr);
@@ -91,19 +101,20 @@ int	main(void)
 	{
 		i = 0;
 		while (i < WIDTH)
-		{ 
-			if (j >= 0 && j<= HEIGHT / 3 )
+		{
+			if (j >= 0 && j <= HEIGHT / 3)
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x00FF0000);
-			else if (j > HEIGHT / 3 && j<=  2 * HEIGHT / 3)
+			else if (j > HEIGHT / 3 && j <= 2 * HEIGHT / 3)
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x0000FF00);
 			else
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x000000FF);
 			i++;
 		}
 		j++;
-	}		
+	}
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img_data_ptr->img, 0, 0);
 	mlx_key_hook(data.win_ptr, handle_input, &data);
+	mlx_hook(data.win_ptr, ButtonPress, ButtonPressMask, &button_press, &data);
 	mlx_loop(data.mlx_ptr);
 }
 
@@ -144,4 +155,17 @@ int	main(void)
 	}
 	mlx_key_hook(data.win_ptr, handle_input, &data);
 	mlx_loop(data.mlx_ptr);
+} */
+
+/* int     main(void)
+{
+    t_mlx_data  data;
+
+    data.mlx_ptr = mlx_init();
+    data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "MLX Window");
+
+    mlx_hook(data.win_ptr, ButtonPress, ButtonPressMask, &button_press, &data);
+
+    mlx_loop(data.mlx_ptr);
+    return (0);
 } */
