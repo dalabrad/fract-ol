@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2024/10/10 11:24:46 by dalabrad         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:49:27 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ int	handle_input(int keysym, t_mlx_data *data)
 	if (keysym == XK_Escape)
 	{
 		printf("The %d key (ESC) has been pressed\n\n", keysym);
-		mlx_destroy_image(data->mlx_ptr, data->img_data_ptr->img);
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_image(data->mlx_ptr, data->img_data_ptr->img);
+		free(data->img_data_ptr);
 		mlx_destroy_display(data->mlx_ptr);
 		free (data->mlx_ptr);
 		exit (1);
@@ -75,13 +76,21 @@ int	main(void)
 		free(data.mlx_ptr);
 		return(MLX_ERROR);
 	}
+	data.img_data_ptr = malloc(sizeof(t_data)); // Asignar memoria para img_data_ptr
+	if (!data.img_data_ptr)
+	{
+		mlx_destroy_window(data.mlx_ptr, data.win_ptr);
+		mlx_destroy_display(data.mlx_ptr);
+		free(data.mlx_ptr);
+		return (MLX_ERROR);
+	}
 	data.img_data_ptr->img = mlx_new_image(data.mlx_ptr, 1920, 1080);
 	data.img_data_ptr->addr = mlx_get_data_addr(data.img_data_ptr->img, &(data.img_data_ptr->bpp), &(data.img_data_ptr->line_length), &(data.img_data_ptr->endian));
 	j = 0;
-	while (j < 1080)
+	while (j < WIDTH)
 	{
 		i = 0;
-		while (i < 1920)
+		while (i < HEIGHT)
 		{ 
 			if (j >= 0 && j<= 333)
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x00FF0000);
