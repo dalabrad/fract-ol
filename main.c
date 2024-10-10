@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2024/10/10 11:49:27 by dalabrad         ###   ########.fr       */
+/*   Updated: 2024/10/10 11:57:19 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include "libft/libft.h"
 
 #define MLX_ERROR 1
-#define WIDTH 1080
-#define HEIGHT 1920
+#define WIDTH 1920
+#define HEIGHT 1080
 
 typedef struct s_data
 {
@@ -69,7 +69,7 @@ int	main(void)
 	data.mlx_ptr = mlx_init();
 	if (!data.mlx_ptr)
 		return (MLX_ERROR);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, 1920, 1080, "Hello!");
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Hello!");
 	if (!data.win_ptr)
 	{
 		mlx_destroy_display(data.mlx_ptr);
@@ -84,17 +84,17 @@ int	main(void)
 		free(data.mlx_ptr);
 		return (MLX_ERROR);
 	}
-	data.img_data_ptr->img = mlx_new_image(data.mlx_ptr, 1920, 1080);
+	data.img_data_ptr->img = mlx_new_image(data.mlx_ptr, WIDTH, HEIGHT);
 	data.img_data_ptr->addr = mlx_get_data_addr(data.img_data_ptr->img, &(data.img_data_ptr->bpp), &(data.img_data_ptr->line_length), &(data.img_data_ptr->endian));
 	j = 0;
-	while (j < WIDTH)
+	while (j < HEIGHT)
 	{
 		i = 0;
-		while (i < HEIGHT)
+		while (i < WIDTH)
 		{ 
-			if (j >= 0 && j<= 333)
+			if (j >= 0 && j<= HEIGHT / 3 )
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x00FF0000);
-			else if (j > 333 && j<= 690)
+			else if (j > HEIGHT / 3 && j<=  2 * HEIGHT / 3)
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x0000FF00);
 			else
 				my_mlx_pixel_put(data.img_data_ptr, i, j, 0x000000FF);
