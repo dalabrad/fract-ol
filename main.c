@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/03 10:12:13 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/03 10:55:08 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(void)
 		free(data.mlx_ptr);
 		return(MLX_ERROR);
 	}
-	data.img_data_ptr = malloc(sizeof(t_data)); // Asignar memoria para img_data_ptr
+	data.img_data_ptr = (t_data *)malloc(sizeof(t_data)); // Asignar memoria para img_data_ptr
 	if (!data.img_data_ptr)
 	{
 		mlx_destroy_window(data.mlx_ptr, data.win_ptr);
