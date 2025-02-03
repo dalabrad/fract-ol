@@ -55,4 +55,4 @@ dkms.conf
 fractol
 
 #Minilibx test files
-mlxtest_*.c
+#mlxtest_*.c
