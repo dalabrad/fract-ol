@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 10:43:48 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/04 12:00:39 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@
 
 # define INPUT_ERROR 1
 # define MLX_ERROR 2
-# define MALLOC_ERROR 3
+# define WINDOW_ERROR 3
+# define IMG_ERROR 4
+
+# define WIDTH 800
+# define HEIGHT 800
 
 typedef struct s_img
 {
@@ -42,6 +46,7 @@ typedef struct s_img
 */
 typedef struct s_fractal
 {
+	char	*name;
 	void	*mlx;
 	void	*window;
 	t_img	img_data;
@@ -49,6 +54,9 @@ typedef struct s_fractal
 }	t_fractal;
 
 //	fractol_error_msg.c
-void	error_msg(int err_id);
+int		error_msg(int err_id);
+
+// fractol_fractal_init.c
+void	fractal_init(t_fractal *fractal);
 
 #endif
