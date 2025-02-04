@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 18:15:28 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:45:12 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,15 @@ typedef struct s_fractal
 }	t_fractal;
 
 //	fractol_error_msg.c
-int		error_msg(int err_id);
+int			error_msg(int err_id);
 
-// fractol_fractal_init.c
-void	fractal_init(t_fractal *fractal);
+//	fractol_fractal_init.c
+void		fractal_init(t_fractal *fractal);
+
+//	fractol_math_utils.c
+double		rescale_double(double unscaled_n, double new_min, double new_max,
+				double old_max);
+t_complex	add_complex(t_complex z1, t_complex z2);
+t_complex	square_complex(t_complex z);
 
 #endif
