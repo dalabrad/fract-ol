@@ -25,7 +25,7 @@ RESET = \033[0m
 
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC)  $(CFLAGS) -Iminilibx-linux $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
+	$(CC)  $(CFLAGS) -Iminilibx-linux $(OBJS) $(MAIN) -o $(NAME) -Lminilibx-linux -lmlx -lXext -lX11 -lm $(LIBFT)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
