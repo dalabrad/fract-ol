@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 18:49:35 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/04 21:08:31 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char *argv[])
 	{
 		fractal.name = argv[1];
 		fractal_init(&fractal);
+		fractal_render(&fractal);
 		ft_printf("Everything ok!!\n");
 	}
 	else

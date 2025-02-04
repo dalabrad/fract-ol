@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:12:12 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 18:42:22 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/04 20:30:00 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,9 @@ t_complex	square_complex(t_complex z)
 	result.x = pow(z.x, 2) - pow(z.y, 2);
 	result.y = 2 * z.x * z.y;
 	return (result);
+}
+
+double	complex_modulus(t_complex z)
+{
+	return (sqrt(pow(z.x, 2) + pow(z.y, 2)));
 }
