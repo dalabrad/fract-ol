@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 12:00:39 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:15:28 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+
+typedef struct s_complex
+{
+	double	x;
+	double	y;
+}	t_complex;
 
 typedef struct s_img
 {
