@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 10:56:40 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:08:41 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	key_handler(int keysym, t_fractal *fractal)
 			fractal->n_iterations -= 1;
 		ft_printf("Number of interations decreased to : %d\n", fractal->n_iterations);
 	}
+	fractal_render(fractal);
 	return (0);
 }
