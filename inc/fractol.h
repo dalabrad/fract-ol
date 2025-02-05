@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 11:12:44 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:10:39 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTOL_H
 
 # include <X11/keysym.h>
+# include <X11/X.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -87,6 +88,7 @@ int			error_msg(int err_id);
 void		fractal_init(t_fractal *fractal);
 
 //	fractol_events.c
+int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
 
 //	fractol_math_utils.c

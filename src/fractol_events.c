@@ -6,19 +6,20 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 11:47:44 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:10:11 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
-static void	close_handler(t_fractal *fractal)
+int	close_handler(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->img_data.img);
 	mlx_destroy_window(fractal->mlx, fractal->window);
 	mlx_destroy_display(fractal->mlx);
 	free(fractal->mlx);
 	exit (EXIT_SUCCESS);
+	return (0);
 }
 
 int	key_handler(int keysym, t_fractal *fractal)
