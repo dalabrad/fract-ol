@@ -6,24 +6,29 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 11:25:49 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:47:44 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+static void	close_handler(t_fractal *fractal)
+{
+	mlx_destroy_image(fractal->mlx, fractal->img_data.img);
+	mlx_destroy_window(fractal->mlx, fractal->window);
+	mlx_destroy_display(fractal->mlx);
+	free(fractal->mlx);
+	exit (EXIT_SUCCESS);
+}
+
 int	key_handler(int keysym, t_fractal *fractal)
 {
 	if (keysym == XK_Escape)
-	{
-		ft_printf("ESC has been pressed.\n", keysym);
-		exit (EXIT_SUCCESS);
-		//close_handler(fractal); TO DO
-	}
+		close_handler(fractal);
 	else if (keysym == XK_plus)
 	{
 		fractal->n_iterations += 10;
-		ft_printf("Number of interations raised to : %d\n", fractal->n_iterations);
+		ft_printf("Interations raised to : %d\n", fractal->n_iterations);
 	}
 	else if (keysym == XK_minus)
 	{
@@ -31,7 +36,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 			fractal->n_iterations -= 10;
 		else if (fractal->n_iterations <= 10 && fractal->n_iterations > 1)
 			fractal->n_iterations -= 1;
-		ft_printf("Number of interations decreased to : %d\n", fractal->n_iterations);
+		ft_printf("Interations decreased to : %d\n", fractal->n_iterations);
 	}
 	else if (keysym == XK_Left)
 		fractal->shift_x += 0.1;
