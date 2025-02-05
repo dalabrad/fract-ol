@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 11:08:41 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:25:49 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ int	key_handler(int keysym, t_fractal *fractal)
 			fractal->n_iterations -= 1;
 		ft_printf("Number of interations decreased to : %d\n", fractal->n_iterations);
 	}
+	else if (keysym == XK_Left)
+		fractal->shift_x += 0.1;
+	else if (keysym == XK_Right)
+		fractal->shift_x -= 0.1;
+	else if (keysym == XK_Up)
+		fractal->shift_y += 0.1;
+	else if (keysym == XK_Down)
+		fractal->shift_y -= 0.1;
 	fractal_render(fractal);
 	return (0);
 }

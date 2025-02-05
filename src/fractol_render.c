@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:35:31 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 21:18:13 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:28:46 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = rescale_double(x, -2, 2, WIDTH);
-	c.y = rescale_double(y, -2, 2, HEIGHT);
+	c.x = rescale_double(x, -2, 2, WIDTH) + fractal->shift_x;
+	c.y = rescale_double(y, -2, 2, HEIGHT) + fractal->shift_y;
 	i = 0;
 	while (i < fractal->n_iterations)
 	{

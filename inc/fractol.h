@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 10:38:52 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:12:44 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ typedef struct s_fractal
 	//Hooks member variables
 	double	escape_value;
 	int		n_iterations;
+	double	shift_x;
+	double	shift_y;
 }	t_fractal;
 
 //	fractol_error_msg.c

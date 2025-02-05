@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:13 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 10:39:10 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:14:41 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 2;
 	fractal->n_iterations = 42;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
 }
 
 static void	events_init(t_fractal *fractal)
