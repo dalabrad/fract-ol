@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 17:31:12 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:36:09 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ double		rescale_double(double unscaled_n, double new_min, double new_max,
 				double old_max);
 t_complex	add_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+t_complex	cubic_complex(t_complex z);
 double		complex_modulus(t_complex z);
 
 //	fractol_render.c
