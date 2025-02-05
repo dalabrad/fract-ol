@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:13 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 11:14:41 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:36:21 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	fractal_init(t_fractal *fractal)
 	fractal->img_data.addr = mlx_get_data_addr(fractal->img_data.img,
 			&(fractal->img_data.bpp), &(fractal->img_data.line_len),
 			&(fractal->img_data.endian));
-	events_init(fractal);
 	data_init(fractal);
+	events_init(fractal);
 }
