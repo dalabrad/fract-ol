@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:35:31 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 13:08:34 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:00:41 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		i++;
 	}
-	my_pixel_put(&(fractal->img_data), x, y, BLACK);
+	my_pixel_put(&(fractal->img_data), x, y, WHITE);
 }
 
 void	fractal_render(t_fractal *fractal)
