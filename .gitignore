@@ -54,5 +54,6 @@ dkms.conf
 #Program name
 fractol
 
-#Minilibx test files
+#Test files
+test.c
 #mlxtest_*.c
