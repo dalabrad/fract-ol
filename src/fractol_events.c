@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 10:38:36 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:56:40 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,24 @@
 
 int	key_handler(int keysym, t_fractal *fractal)
 {
-	ft_printf("%s set:\n", fractal->name);
-	ft_printf("The key '%d' has been pressed.\n", keysym);
+	if (keysym == XK_Escape)
+	{
+		ft_printf("ESC has been pressed.\n", keysym);
+		exit (EXIT_SUCCESS);
+		//close_handler(fractal); TO DO
+	}
+	else if (keysym == XK_plus)
+	{
+		fractal->n_iterations += 10;
+		ft_printf("Number of interations raised to : %d\n", fractal->n_iterations);
+	}
+	else if (keysym == XK_minus)
+	{
+		if (fractal->n_iterations > 10)
+			fractal->n_iterations -= 10;
+		else if (fractal->n_iterations <= 10 && fractal->n_iterations > 1)
+			fractal->n_iterations -= 1;
+		ft_printf("Number of interations decreased to : %d\n", fractal->n_iterations);
+	}
 	return (0);
 }
