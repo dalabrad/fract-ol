@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 21:07:32 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:38:52 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ int			error_msg(int err_id);
 
 //	fractol_fractal_init.c
 void		fractal_init(t_fractal *fractal);
+
+//	fractol_events.c
+int			key_handler(int keysym, t_fractal *fractal);
 
 //	fractol_math_utils.c
 double		rescale_double(double unscaled_n, double new_min, double new_max,
