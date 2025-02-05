@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 13:02:00 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:31:12 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # define WINDOW_ERROR 3
 # define IMG_ERROR 4
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
 
 // Colors
 # define BLACK       0x000000  // RGB(0, 0, 0)
