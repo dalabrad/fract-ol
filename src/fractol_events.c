@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 12:10:11 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:13:58 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,23 @@ int	key_handler(int keysym, t_fractal *fractal)
 		ft_printf("Interations decreased to : %d\n", fractal->n_iterations);
 	}
 	else if (keysym == XK_Left)
-		fractal->shift_x += 0.1;
+		fractal->shift_x += 0.1 * fractal->zoom;
 	else if (keysym == XK_Right)
-		fractal->shift_x -= 0.1;
+		fractal->shift_x -= 0.1 * fractal->zoom;
 	else if (keysym == XK_Up)
-		fractal->shift_y += 0.1;
+		fractal->shift_y += 0.1 * fractal->zoom;
 	else if (keysym == XK_Down)
-		fractal->shift_y -= 0.1;
+		fractal->shift_y -= 0.1 * fractal->zoom;
 	fractal_render(fractal);
 	return (0);
+}
+
+int	mouse_handler(int button, int x, int y, t_fractal *fractal)
+{
+	if (button == Button5)
+		fractal->zoom *= 1.20;
+	else if (button == Button4)
+		fractal->zoom *= 0.80;
+	fractal_render(fractal);
+	return (x + y);
 }

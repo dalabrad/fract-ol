@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:13 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 12:17:20 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:02:19 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	data_init(t_fractal *fractal)
 	fractal->n_iterations = 42;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0;
 }
 
 static void	events_init(t_fractal *fractal)
@@ -25,6 +26,8 @@ static void	events_init(t_fractal *fractal)
 	mlx_key_hook(fractal->window, key_handler, fractal);
 	mlx_hook(fractal->window, DestroyNotify, StructureNotifyMask,
 		close_handler, fractal);
+	mlx_hook(fractal->window, ButtonPress, ButtonPressMask,
+		mouse_handler, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
