@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 18:12:12 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 18:33:58 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:10:21 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ double	rescale_double(double unscaled_n, double new_min, double new_max,
 	return ((new_max - new_min) * unscaled_n / old_max + new_min);
 }
 
+/*
+ * This function adds two complex numbers
+*/
 t_complex	add_complex(t_complex z1, t_complex z2)
 {
 	t_complex	result;
@@ -30,6 +33,9 @@ t_complex	add_complex(t_complex z1, t_complex z2)
 	return (result);
 }
 
+/*
+ * This function calculates the square power of a complex number
+*/
 t_complex	square_complex(t_complex z)
 {
 	t_complex	result;
@@ -39,6 +45,9 @@ t_complex	square_complex(t_complex z)
 	return (result);
 }
 
+/*
+ * This function calculates the cubic power of a complex number
+*/
 t_complex	cubic_complex(t_complex z)
 {
 	t_complex	result;
@@ -48,6 +57,9 @@ t_complex	cubic_complex(t_complex z)
 	return (result);
 }
 
+/*
+ * This function calculates the modulus of a complex number
+*/
 double	complex_modulus(t_complex z)
 {
 	return (sqrt(pow(z.x, 2) + pow(z.y, 2)));
