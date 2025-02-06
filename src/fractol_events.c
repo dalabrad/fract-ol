@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 11:38:52 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:41:49 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 }
 
 /*
- * This function receives the pressed mouse buttons:
+ * This function receives the pressed mouse buttons and its position in window:
  * 	 ~ If the mouse wheel goes up => zoom in
  * 	 ~ If the mouse wheel goes down => zoom out
  * The zoom is exponential!!
