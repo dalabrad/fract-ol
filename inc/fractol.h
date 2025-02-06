@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:43:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 18:36:09 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:43:09 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define MLX_ERROR 2
 # define WINDOW_ERROR 3
 # define IMG_ERROR 4
+# define JULIA_ARG_ERROR 5
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -70,16 +71,17 @@ typedef struct s_img
 */
 typedef struct s_fractal
 {
-	char	*name;
-	void	*mlx;
-	void	*window;
-	t_img	img_data;
+	char		*name;
+	void		*mlx;
+	void		*window;
+	t_img		img_data;
 	//Hooks member variables
-	double	escape_value;
-	int		n_iterations;
-	double	shift_x;
-	double	shift_y;
-	double	zoom;
+	double		escape_value;
+	int			n_iterations;
+	double		shift_x;
+	double		shift_y;
+	double		zoom;
+	t_complex	julia;
 }	t_fractal;
 
 //	fractol_error_msg.c

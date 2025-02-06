@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:48:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/04 11:56:17 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 10:52:38 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ int	error_msg(int err_id)
 		ft_putstr_fd("\t'./fractol Julia <real part> <imaginary part>'\n", 2);
 	}
 	else if (err_id == MLX_ERROR)
-		ft_putstr_fd("the connection to mlx server failed.\n", 2);
+		ft_putstr_fd("The connection to mlx server failed.\n", 2);
 	else if (err_id == WINDOW_ERROR)
-		ft_putstr_fd("unable to open new window.\n", 2);
+		ft_putstr_fd("Unable to open new window.\n", 2);
 	else if (err_id == IMG_ERROR)
-		ft_putstr_fd("unable to create new image.\n", 2);
+		ft_putstr_fd("Unable to create new image.\n", 2);
+	else if (err_id == JULIA_ARG_ERROR)
+	{
+		ft_putstr_fd("Bad Julia argument format.\n", 2);
+		ft_putstr_fd("Correct format : '(-)21678.900'.\nOnly use number", 2);
+		ft_putstr_fd(" characters, a minus sign if the argument is nega", 2);
+		ft_putstr_fd("tive and separate the decimal part with a dot (.).\n", 2);
+	}
 	return (err_id);
 }

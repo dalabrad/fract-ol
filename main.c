@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 20:34:56 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:14:47 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,16 @@ static double	atod(char *str)
 	return (sign * result);
 }
 
+static double	get_julia_arg(char *str)
+{
+	if (!check_argument(str))
+	{
+		error_msg(JULIA_ARG_ERROR);
+		exit (JULIA_ARG_ERROR);
+	}
+	return (atod(str));
+}
+
 int	main(int argc, char *argv[])
 {
 	t_fractal	fractal;
@@ -72,6 +82,13 @@ int	main(int argc, char *argv[])
 		|| (argc == 4 && !ft_strncmp(argv[1], "Julia", 6)))
 	{
 		fractal.name = argv[1];
+		if (argc == 4)
+		{
+			fractal.julia.x = get_julia_arg(argv[2]);
+			fractal.julia.y = get_julia_arg(argv[3]);
+			printf("Julia real part = %f\n", fractal.julia.x);
+			printf("Julia imaginary part = %f\n", fractal.julia.y);
+		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 	}
