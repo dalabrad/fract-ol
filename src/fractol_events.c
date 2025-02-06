@@ -6,12 +6,16 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 13:13:58 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:38:52 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+/*
+ * This function performs a clean exit of the program (no leaks) 
+ * will be called when pressing ESC key or window close button (x)
+ */
 int	close_handler(t_fractal *fractal)
 {
 	mlx_destroy_image(fractal->mlx, fractal->img_data.img);
@@ -22,6 +26,12 @@ int	close_handler(t_fractal *fractal)
 	return (0);
 }
 
+/*
+ * This function receives the pressed key:
+ * 	 ~ If it is ESC calls close_handler()
+ * 	 ~ If it is + or - Increases/decreases the n_interations
+ * 	 ~ If it is the arrow keys moves the fractal image (changes shift_x/y value).
+ */
 int	key_handler(int keysym, t_fractal *fractal)
 {
 	if (keysym == XK_Escape)
@@ -51,12 +61,18 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
+/*
+ * This function receives the pressed mouse buttons:
+ * 	 ~ If the mouse wheel goes up => zoom in
+ * 	 ~ If the mouse wheel goes down => zoom out
+ * The zoom is exponential!!
+ */
 int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
 	if (button == Button5)
-		fractal->zoom *= 1.20;
+		fractal->zoom *= 1.05;
 	else if (button == Button4)
-		fractal->zoom *= 0.80;
+		fractal->zoom *= 0.95;
 	fractal_render(fractal);
 	return (x + y);
 }
