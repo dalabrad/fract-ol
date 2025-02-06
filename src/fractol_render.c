@@ -6,12 +6,18 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:35:31 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 18:00:41 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:45:36 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+/*
+ * This function calculates the memory position of the pixel located in (x,y)
+ * and stores the color value on that memory spot. Is beter that mlx_pixel_put()
+ * because we can calculate the whole image and then push it to the window, 
+ * comparing to mlx_pixel_put() that renders pixel by pixel.
+*/
 static void	my_pixel_put(t_img *data, int x, int y, int color)
 {
 	char	*dst;
@@ -58,6 +64,12 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	my_pixel_put(&(fractal->img_data), x, y, WHITE);
 }
 
+/*
+ * This function renders the fractal image:
+ *  	1) calcules the color of each pixel of the image
+ * 			with pixel_handler().
+ * 		2) Then pushes the image to the window.
+*/
 void	fractal_render(t_fractal *fractal)
 {
 	int	x;
