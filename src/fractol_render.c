@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:35:31 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 12:45:36 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 21:45:57 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@ static void	my_pixel_put(t_img *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
 	*(unsigned int *)dst = color;
+}
+
+static void	fractal_check(t_fractal *fractal, t_complex *z, t_complex *c)
+{
+	if (!ft_strncmp(fractal->name, "Julia", 5))
+	{
+		z->x = c->x;
+		z->y = c->y;
+		c->x = fractal->julia.x;
+		c->y = fractal->julia.y;
+	}
+	else
+	{
+		z->x = 0.0;
+		z->y = 0.0;
+	}
 }
 
 /*
@@ -45,14 +61,16 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			i;
 	int			color;
 
-	z.x = 0.0;
-	z.y = 0.0;
 	c.x = rescale_double(x, -2, 2, WIDTH) * fractal->zoom + fractal->shift_x;
 	c.y = rescale_double(y, -2, 2, HEIGHT) * fractal->zoom + fractal->shift_y;
+	fractal_check(fractal, &z, &c);
 	i = 0;
 	while (i < fractal->n_iterations)
 	{
-		z = add_complex(square_complex(z), c);
+		if (!ft_strncmp(fractal->name, "Bonus", 5))
+			z = add_complex(cubic_complex(z), c);
+		else
+			z = add_complex(square_complex(z), c);
 		if (complex_modulus(z) > fractal->escape_value)
 		{
 			color = rescale_double(i, BLACK, WHITE, fractal->n_iterations);
