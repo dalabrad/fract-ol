@@ -6,12 +6,19 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 11:14:47 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:27:08 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/fractol.h"
 
+/*
+ * This function checks that the argument has the right format:AnyPropertyType
+ * 		1) only one minuns sign for negative values
+ * 		2) checks that doesn't start on a dot (.)
+ * 		3) checks that there's only number characters and one dot (.)
+ * 		4) checks that the last character is not a dot.
+*/
 static int	check_argument(char *str)
 {
 	int	dot_count;
@@ -35,6 +42,10 @@ static int	check_argument(char *str)
 	return (1);
 }
 
+/*
+ * This function transforms a string that has the right format (checked by 
+ * check_argument()) and transforms it returning a double.
+ */
 static double	atod(char *str)
 {
 	double	result;
@@ -64,6 +75,11 @@ static double	atod(char *str)
 	return (sign * result);
 }
 
+/*
+ * This function checks the format first:
+ *		~ If it is not correct prints error msg and exits the program
+ *		~ If format correct trasnforms the string to double with atod()
+ */
 static double	get_julia_arg(char *str)
 {
 	if (!check_argument(str))
