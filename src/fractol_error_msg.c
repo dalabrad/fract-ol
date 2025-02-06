@@ -6,12 +6,16 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:48:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 10:52:38 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:30:08 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+/*
+ * This function prints an error msg on STDERR_FLENO given the err_id.
+ * it returns the err_id too so it can be used inside a return() or exit().
+ */
 int	error_msg(int err_id)
 {
 	ft_putstr_fd("Error: ", STDERR_FILENO);
