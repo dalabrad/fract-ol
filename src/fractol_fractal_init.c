@@ -6,12 +6,22 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 11:16:13 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/05 17:24:43 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/06 12:07:12 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
+/*
+ * This function innitializes the hook member values for the fractal:
+ * 	 ~ escape_value is the value which is max module value for a point to escape
+ * 	 ~ n_iterations is tied to the resolution of image (more iterations more res)
+ * 		will change when pressing + or - keys.
+ * 	 ~ shift_(x/y) will estore the movement of the image (useful to move image 
+ * 		with arrow keys). Starts on 0 because we want the image centered.
+ *	 ~ zoom will store the zoom data, will vary when moving the mouse wheel. 
+ 		Starts in 1 then will increase and decrease exponentially.
+ */
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 2;
@@ -21,6 +31,13 @@ static void	data_init(t_fractal *fractal)
 	fractal->zoom = 1.0;
 }
 
+/*
+ * This function innitializes the mlx_hooks:
+ * 	 1) Key_hoop to send the pressed keys to key_handler()
+ * 	 2) A hook to call close_handler() when window close button (x) is pressed.
+ * 	 3) Mouse_hook to send the pressed mouse button and its location to 
+ * 		mouse_handler()
+ */
 static void	events_init(t_fractal *fractal)
 {
 	mlx_hook(fractal->window, KeyPress, KeyPressMask,
@@ -31,6 +48,18 @@ static void	events_init(t_fractal *fractal)
 		mouse_handler, fractal);
 }
 
+/*
+ * First, this function innitializes all the necesary things for minilibx :
+ * 	 1) Connects with mlx server.
+ * 	 2) Creates new window.
+ * 	 3) Creates new image.
+ *------If any of this steps fails allocating memory a clean exit is performed.
+ *   4) Get image pixel address.
+ * Then starts the data and the event hooks:
+ *	 5) Call data_init().
+ *	 6) Call events_init().
+ 	
+ */
 void	fractal_init(t_fractal *fractal)
 {
 	fractal->mlx = mlx_init();
