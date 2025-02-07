@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 09:48:22 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 11:30:08 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:04:32 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	error_msg(int err_id)
 	ft_putstr_fd("Error: ", STDERR_FILENO);
 	if (err_id == INPUT_ERROR)
 	{
-		ft_putstr_fd("Please enter:\n\t'./fractol Mandelbrot' or\n", 2);
+		ft_putstr_fd("Please enter:\n\t'./fractol Mandelbrot' ,\n", 2);
+		ft_putstr_fd("\t'./fractol Bonus' or\n", 2);
 		ft_putstr_fd("\t'./fractol Julia <real part> <imaginary part>'\n", 2);
 	}
 	else if (err_id == MLX_ERROR)
