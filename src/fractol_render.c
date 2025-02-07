@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 19:35:31 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 21:45:57 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:10:21 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,15 @@ static void	fractal_check(t_fractal *fractal, t_complex *z, t_complex *c)
 
 /*
  *	 (0,0)--------(W,0)					(-2,2)---------(2 , 2)
- *		|			|	rescale_double()	|			|
+ *		|			|	 rescalation()		|			|
  * 		|			|  ==================>	|			|
  * 		|			|						|			|
  * 	  (0,H)______(W, H)					(-2,-2)________(2, -2)
  * 
- * 		MANDELBROT
- * 		z = z² + c
- * 		z0 = (0, 0)
- * 		c is the actual point
+ * 	MANDELBROT					JULIA						BONUS
+ * 	z = z² + c					z = z² + c					z = z³ + c
+ * 	z0 = (0, 0)					z is the actual point		z0 = (0,0)
+ * 	c is the actual point		c is const					c is act. point
 */
 static void	handle_pixel(int x, int y, t_fractal *fractal)
 {
