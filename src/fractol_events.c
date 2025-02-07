@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:18:03 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 11:41:49 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:13:28 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 	else if (keysym == XK_plus)
 	{
 		fractal->n_iterations += 10;
-		ft_printf("Interations raised to : %d\n", fractal->n_iterations);
+		ft_printf("Iterations raised to : %d\n", fractal->n_iterations);
 	}
 	else if (keysym == XK_minus)
 	{
@@ -47,7 +47,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 			fractal->n_iterations -= 10;
 		else if (fractal->n_iterations <= 10 && fractal->n_iterations > 1)
 			fractal->n_iterations -= 1;
-		ft_printf("Interations decreased to : %d\n", fractal->n_iterations);
+		ft_printf("Iterations decreased to : %d\n", fractal->n_iterations);
 	}
 	else if (keysym == XK_Left)
 		fractal->shift_x += 0.1 * fractal->zoom;
