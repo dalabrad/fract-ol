@@ -6,7 +6,7 @@
 /*   By: dalabrad <dalabrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 13:49:17 by dalabrad          #+#    #+#             */
-/*   Updated: 2025/02/06 22:07:28 by dalabrad         ###   ########.fr       */
+/*   Updated: 2025/02/07 10:02:37 by dalabrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,6 @@ int	main(int argc, char *argv[])
 		{
 			fractal.julia.x = get_julia_arg(argv[2]);
 			fractal.julia.y = get_julia_arg(argv[3]);
-			//Important to remove this part can't use printf()!!!
-			printf("Julia real part = %f\n", fractal.julia.x);
-			printf("Julia imaginary part = %f\n", fractal.julia.y);
 		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
